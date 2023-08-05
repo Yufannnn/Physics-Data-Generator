@@ -13,7 +13,7 @@ class PhysicsDataGenerator(QMainWindow):
         super().__init__()
 
         # Load formulas using FormulaLoader
-        formula_loader = FormulaLoader('data/formulae/formulae.json')
+        formula_loader = FormulaLoader('../data/formulae/formulae.json')
         self.formulas = formula_loader.load_formulas()
 
         # Set up the main window
@@ -24,7 +24,7 @@ class PhysicsDataGenerator(QMainWindow):
         self.center_window()
 
         # set Icon for the window
-        self.setWindowIcon(QIcon('res/images/icon.png'))
+        self.setWindowIcon(QIcon('../res/images/icon.png'))
 
         # Create a layout
         layout = QVBoxLayout()
@@ -145,9 +145,13 @@ class PhysicsDataGenerator(QMainWindow):
 
     def save_data_points(self, data_frame, formula_name, is_training_data=True):
         if is_training_data:
-            file_name = 'data/training_data/' + formula_name + '.csv'
+            file_name = '../data/training_data/' + formula_name + '.csv'
         else:
-            file_name = 'data/testing_data/' + formula_name + '.csv'
+            file_name = '../data/testing_data/' + formula_name + '.csv'
+
+        # Check if the folder exists, if not create it
+        if not os.path.exists(os.path.dirname(file_name)):
+            os.makedirs(os.path.dirname(file_name))
 
         # Check if the file exists and contains data before reading
         if os.path.exists(file_name) and os.path.getsize(file_name) > 0:

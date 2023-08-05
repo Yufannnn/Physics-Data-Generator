@@ -4,6 +4,8 @@ from src.formula_loader import FormulaLoader
 
 if __name__ == "__main__":
     file_name = '../data/formulae/formulae.json'
+    # create the formula folder and file if it does not exist
+    open(file_name, 'a').close()
 
     K_spring = Variable('k_spring', 'Spring constant', 'N/m', 'real', '[0, inf]')
     x = Variable('x', 'Displacement', 'm', 'real', '[-inf, inf]')

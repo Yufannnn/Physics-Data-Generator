@@ -1,0 +1,29 @@
+[
+    {
+        "name": "I.25.13: Capacitance",
+        "equation": "q / C",
+        "independent_variables": [
+            {
+                "symbol": "q",
+                "name": "Charge",
+                "unit": "C",
+                "domain_type": "real",
+                "domain_range": "[-inf, inf]"
+            },
+            {
+                "symbol": "C",
+                "name": "Capacitance",
+                "unit": "F",
+                "domain_type": "real",
+                "domain_range": "[0, inf]"
+            }
+        ],
+        "dependent_variable": {
+            "symbol": "V_epsilon",
+            "name": "Electric potential",
+            "unit": "V",
+            "domain_type": "real",
+            "domain_range": "[-inf, inf]"
+        }
+    }
+]
